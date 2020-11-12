@@ -26,7 +26,7 @@ namespace CurrencyConverterLibreria
             currency = type;
             amount = val;
         }
-
+         
         public decimal ConvertTo(CurrencyType type)
         {
             decimal converted = ConvertToUS();
