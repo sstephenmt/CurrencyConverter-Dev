@@ -35,12 +35,8 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.Result = new System.Windows.Forms.Label();
             this.ConvertButton = new System.Windows.Forms.Button();
-            this.FromUS = new System.Windows.Forms.RadioButton();
-            this.FromUK = new System.Windows.Forms.RadioButton();
-            this.FromAUS = new System.Windows.Forms.RadioButton();
-            this.ToUS = new System.Windows.Forms.RadioButton();
-            this.ToUK = new System.Windows.Forms.RadioButton();
-            this.ToAus = new System.Windows.Forms.RadioButton();
+            this.fromCombo = new System.Windows.Forms.ComboBox();
+            this.toCombo = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,40 +44,42 @@
             // lblConvert
             // 
             this.lblConvert.AutoSize = true;
-            this.lblConvert.Location = new System.Drawing.Point(25, 24);
+            this.lblConvert.Location = new System.Drawing.Point(19, 20);
+            this.lblConvert.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConvert.Name = "lblConvert";
-            this.lblConvert.Size = new System.Drawing.Size(57, 17);
+            this.lblConvert.Size = new System.Drawing.Size(44, 13);
             this.lblConvert.TabIndex = 0;
             this.lblConvert.Text = "Convert";
             // 
             // Amount
             // 
-            this.Amount.Location = new System.Drawing.Point(91, 24);
+            this.Amount.Location = new System.Drawing.Point(68, 20);
+            this.Amount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Amount.Name = "Amount";
-            this.Amount.Size = new System.Drawing.Size(100, 22);
+            this.Amount.Size = new System.Drawing.Size(76, 20);
             this.Amount.TabIndex = 1;
             this.Amount.Text = "0";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.FromAUS);
-            this.groupBox2.Controls.Add(this.FromUK);
-            this.groupBox2.Controls.Add(this.FromUS);
-            this.groupBox2.Location = new System.Drawing.Point(28, 73);
+            this.groupBox2.Controls.Add(this.fromCombo);
+            this.groupBox2.Location = new System.Drawing.Point(21, 59);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(89, 113);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(67, 92);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "From";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.ToAus);
-            this.groupBox1.Controls.Add(this.ToUK);
-            this.groupBox1.Controls.Add(this.ToUS);
-            this.groupBox1.Location = new System.Drawing.Point(136, 73);
+            this.groupBox1.Controls.Add(this.toCombo);
+            this.groupBox1.Location = new System.Drawing.Point(105, 59);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(91, 113);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(68, 92);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "To";
@@ -90,104 +88,56 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(256, 73);
+            this.lblResult.Location = new System.Drawing.Point(192, 59);
+            this.lblResult.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(48, 17);
+            this.lblResult.Size = new System.Drawing.Size(37, 13);
             this.lblResult.TabIndex = 4;
             this.lblResult.Text = "Result";
             // 
             // Result
             // 
             this.Result.AutoSize = true;
-            this.Result.Location = new System.Drawing.Point(256, 108);
+            this.Result.Location = new System.Drawing.Point(192, 88);
+            this.Result.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Result.Name = "Result";
-            this.Result.Size = new System.Drawing.Size(16, 17);
+            this.Result.Size = new System.Drawing.Size(13, 13);
             this.Result.TabIndex = 5;
             this.Result.Text = "0";
             // 
             // ConvertButton
             // 
-            this.ConvertButton.Location = new System.Drawing.Point(259, 150);
+            this.ConvertButton.Location = new System.Drawing.Point(194, 122);
+            this.ConvertButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConvertButton.Name = "ConvertButton";
-            this.ConvertButton.Size = new System.Drawing.Size(75, 23);
+            this.ConvertButton.Size = new System.Drawing.Size(56, 19);
             this.ConvertButton.TabIndex = 6;
             this.ConvertButton.Text = "Convert";
             this.ConvertButton.UseVisualStyleBackColor = true;
             this.ConvertButton.Click += new System.EventHandler(this.ConvertButton_Click);
             // 
-            // FromUS
+            // fromCombo
             // 
-            this.FromUS.AutoSize = true;
-            this.FromUS.Checked = true;
-            this.FromUS.Location = new System.Drawing.Point(17, 22);
-            this.FromUS.Name = "FromUS";
-            this.FromUS.Size = new System.Drawing.Size(56, 21);
-            this.FromUS.TabIndex = 0;
-            this.FromUS.TabStop = true;
-            this.FromUS.Text = "US$";
-            this.FromUS.UseVisualStyleBackColor = true;
+            this.fromCombo.FormattingEnabled = true;
+            this.fromCombo.Location = new System.Drawing.Point(1, 21);
+            this.fromCombo.Name = "fromCombo";
+            this.fromCombo.Size = new System.Drawing.Size(66, 21);
+            this.fromCombo.TabIndex = 0;
+            this.fromCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // FromUK
+            // toCombo
             // 
-            this.FromUK.AutoSize = true;
-            this.FromUK.Location = new System.Drawing.Point(17, 52);
-            this.FromUK.Name = "FromUK";
-            this.FromUK.Size = new System.Drawing.Size(56, 21);
-            this.FromUK.TabIndex = 1;
-            this.FromUK.TabStop = true;
-            this.FromUK.Text = "UK£";
-            this.FromUK.UseVisualStyleBackColor = true;
-            // 
-            // FromAUS
-            // 
-            this.FromAUS.AutoSize = true;
-            this.FromAUS.Location = new System.Drawing.Point(17, 79);
-            this.FromAUS.Name = "FromAUS";
-            this.FromAUS.Size = new System.Drawing.Size(65, 21);
-            this.FromAUS.TabIndex = 2;
-            this.FromAUS.TabStop = true;
-            this.FromAUS.Text = "AUS$";
-            this.FromAUS.UseVisualStyleBackColor = true;
-            // 
-            // ToUS
-            // 
-            this.ToUS.AutoSize = true;
-            this.ToUS.Checked = true;
-            this.ToUS.Location = new System.Drawing.Point(16, 22);
-            this.ToUS.Name = "ToUS";
-            this.ToUS.Size = new System.Drawing.Size(56, 21);
-            this.ToUS.TabIndex = 0;
-            this.ToUS.TabStop = true;
-            this.ToUS.Text = "US$";
-            this.ToUS.UseVisualStyleBackColor = true;
-            // 
-            // ToUK
-            // 
-            this.ToUK.AutoSize = true;
-            this.ToUK.Location = new System.Drawing.Point(16, 48);
-            this.ToUK.Name = "ToUK";
-            this.ToUK.Size = new System.Drawing.Size(56, 21);
-            this.ToUK.TabIndex = 1;
-            this.ToUK.TabStop = true;
-            this.ToUK.Text = "UK£";
-            this.ToUK.UseVisualStyleBackColor = true;
-            // 
-            // ToAus
-            // 
-            this.ToAus.AutoSize = true;
-            this.ToAus.Location = new System.Drawing.Point(16, 78);
-            this.ToAus.Name = "ToAus";
-            this.ToAus.Size = new System.Drawing.Size(65, 21);
-            this.ToAus.TabIndex = 2;
-            this.ToAus.TabStop = true;
-            this.ToAus.Text = "AUS$";
-            this.ToAus.UseVisualStyleBackColor = true;
+            this.toCombo.FormattingEnabled = true;
+            this.toCombo.Location = new System.Drawing.Point(1, 21);
+            this.toCombo.Name = "toCombo";
+            this.toCombo.Size = new System.Drawing.Size(62, 21);
+            this.toCombo.TabIndex = 0;
             // 
             // FrmCurrency
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 202);
+            this.ClientSize = new System.Drawing.Size(278, 164);
             this.Controls.Add(this.ConvertButton);
             this.Controls.Add(this.Result);
             this.Controls.Add(this.lblResult);
@@ -195,12 +145,12 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.Amount);
             this.Controls.Add(this.lblConvert);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmCurrency";
             this.Text = "$ Converter";
+            this.Load += new System.EventHandler(this.FrmCurrency_Load);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,16 +161,12 @@
         private System.Windows.Forms.Label lblConvert;
         private System.Windows.Forms.TextBox Amount;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton FromAUS;
-        private System.Windows.Forms.RadioButton FromUK;
-        private System.Windows.Forms.RadioButton FromUS;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton ToAus;
-        private System.Windows.Forms.RadioButton ToUK;
-        private System.Windows.Forms.RadioButton ToUS;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Label Result;
         private System.Windows.Forms.Button ConvertButton;
+        private System.Windows.Forms.ComboBox fromCombo;
+        private System.Windows.Forms.ComboBox toCombo;
     }
 }
 
