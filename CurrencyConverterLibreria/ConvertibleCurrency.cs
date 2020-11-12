@@ -33,7 +33,7 @@ namespace CurrencyConverterLibreria
             converted = ConvertFromUS(type, converted);
             return converted;
         }
-
+         
 
         private decimal ConvertToUS()
         {
