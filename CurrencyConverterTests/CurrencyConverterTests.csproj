@@ -61,6 +61,10 @@
       <Project>{0cb79685-f8d9-4822-8753-8719c0dd129c}</Project>
       <Name>CurrencyConverterForms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CurrencyConverterLibreria\CurrencyConverterLibreria.csproj">
+      <Project>{39c0ca6e-43f0-4d83-a6a4-15cddff8a70e}</Project>
+      <Name>CurrencyConverterLibreria</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
