@@ -19,45 +19,51 @@ namespace CurrencyConverterForms
         {
             InitializeComponent();
         }
-               
 
-        private void ConvertButton_Click(object sender, EventArgs e)
+
+        private void ConvertButton_Click(object sender, System.EventArgs e)
         {
             decimal converted = 0.0M;
             decimal initial = 0.0M;
-
-            CurrencyType fromCur = CurrencyType.US;
-            CurrencyType toCur = CurrencyType.US;
+            BaseCurrency fromCur;
+            BaseCurrency toCur;
 
             initial = Convert.ToDecimal(Amount.Text);
-
             if (FromUK.Checked)
             {
-                fromCur = CurrencyType.UK;
+                fromCur = new UKCurrency();
             }
             else if (FromAUS.Checked)
             {
-                fromCur = CurrencyType.AUS;
+                fromCur = new AUSCurrency();
             }
-
+            else
+            {
+                fromCur = new USCurrency();
+            }
             if (ToUK.Checked)
             {
-                toCur = CurrencyType.UK;
+                toCur = new UKCurrency();
             }
             else if (ToAus.Checked)
             {
-                toCur = CurrencyType.AUS;
+                toCur = new AUSCurrency();
             }
-            converted = CurrencyConvert(initial, fromCur, toCur);
+            else
+            {
+                toCur = new USCurrency();
+            }
+            converted = ConvertibleCurrency.CurrencyConvert(initial, fromCur, toCur);
             Result.Text = converted.ToString();
         }
-        public static decimal CurrencyConvert(decimal amount, CurrencyType fromCur, CurrencyType toCur)
-        {
-            decimal converted = 0.0M;
-            ConvertibleCurrency currency = new ConvertibleCurrency(fromCur, amount);
-            converted = currency.ConvertTo(toCur);
-            return converted;
-        }
+
+        //public static decimal CurrencyConvert(decimal amount, CurrencyType fromCur, CurrencyType toCur)
+        //{
+           // decimal converted = 0.0M;
+           // ConvertibleCurrency currency = new ConvertibleCurrency(fromCur, amount);
+          //  converted = currency.ConvertTo(toCur);
+         //   return converted;
+        //}
 
 
     }
